@@ -23,6 +23,8 @@ group :development, :test do
   gem 'web-console', '~> 2.0'
   gem 'spring'
   gem 'factory_girl_rails'
+  gem 'pry-rails'
+  gem 'pry-byebug'
 end
 
 group :test do
