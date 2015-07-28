@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     namespace :admin do
       resources :users, except: :show
       resources :snippets, except: :show
+      resources :comments, except: :show
     end
   end
 end

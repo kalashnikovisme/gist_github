@@ -3,3 +3,4 @@ ru:
     models:
       user: Пользователь
       snippet: Сниппет
+      comment: Комментарий
