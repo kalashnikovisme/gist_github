@@ -2,3 +2,4 @@ ru:
   activerecord:
     models:
       user: Пользователь
+      snippet: Сниппет

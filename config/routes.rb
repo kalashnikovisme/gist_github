@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     resources :users, only: [ :new, :create ]
     namespace :admin do
       resources :users, except: :show
+      resources :snippets, except: :show
     end
   end
 end
