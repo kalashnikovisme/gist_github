@@ -6,6 +6,8 @@ class User < ActiveRecord::Base
   validates :email, email: true,
                     uniqueness: true
   validates :role, presence: true
+  validates :login, presence: true,
+                    uniqueness: true
 
   extend Enumerize
   enumerize :role, in: [ :user, :admin ], default: :user

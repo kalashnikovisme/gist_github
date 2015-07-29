@@ -1,9 +1,9 @@
 - model_class = Snippet
-- title model_class.model_name.human.pluralize(:ru), :admin
+- title model_class.model_name.human.pluralize(:ru), :users
 .page-header
   %h1
     = model_class.model_name.human.pluralize(:ru)
-    = link_to t('.new', default: t('helpers.links.new')), new_admin_snippet_path, class: 'btn btn-primary'
+    = link_to t('.new', default: t('helpers.links.new')), new_users_snippet_path, class: 'btn btn-primary'
 = paginate @snippets, theme: 'twitter-bootstrap-3'
 %table.table.table-condensed.table-hover
   %thead
@@ -15,15 +15,15 @@
       %th= t 'helpers.links.actions'
   %tbody
     - @snippets.each do |snippet|
-      %tr.link{ data: { href: edit_admin_snippet_path(snippet) } }
+      %tr.link{ data: { href: edit_users_snippet_path(snippet) } }
         %td= snippet.id
         %td= snippet.title
         %td= snippet.body
         %td= snippet.user.login
         %td.actions
-          = link_to edit_admin_snippet_path(snippet), class: 'btn btn-warning btn-xs' do
+          = link_to edit_users_snippet_path(snippet), class: 'btn btn-warning btn-xs' do
             %span.glyphicon.glyphicon-pencil
-          = link_to admin_snippet_path(snippet), method: :delete, class: 'btn btn-xs btn-danger' do
+          = link_to users_snippet_path(snippet), method: :delete, class: 'btn btn-xs btn-danger' do
             %span.glyphicon.glyphicon-remove
 = paginate @snippets, theme: 'twitter-bootstrap-3'
-= link_to t('.new', default: t('helpers.links.new')), new_admin_snippet_path, class: 'btn btn-primary'
+= link_to t('.new', default: t('helpers.links.new')), new_users_snippet_path, class: 'btn btn-primary'

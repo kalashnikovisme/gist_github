@@ -4,3 +4,9 @@ ru:
       user: Пользователь
       snippet: Сниппет
       comment: Комментарий
+    attributes:
+      snippet:
+        title: Название
+        body: Код
+        user_id: Автор
+        user: Автор

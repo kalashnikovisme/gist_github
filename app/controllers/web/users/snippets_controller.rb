@@ -18,9 +18,10 @@ class Web::Users::SnippetsController < Web::Users::ApplicationController
 
   def create
     @snippet_form = SnippetForm.new_with_model
+    params[:snippet][:user_id] = current_user.id
     @snippet_form.submit params[:snippet]
     if @snippet_form.save
-      redirect_to admin_snippets_path
+      redirect_to users_snippets_path
     else
       render action: :new
     end
@@ -30,7 +31,7 @@ class Web::Users::SnippetsController < Web::Users::ApplicationController
     @snippet_form = SnippetForm.find_with_model params[:id]
     @snippet_form.submit params[:snippet]
     if @snippet_form.save
-      redirect_to edit_admin_snippet_path @snippet_form.model
+      redirect_to edit_users_snippet_path @snippet_form.model
     else
       render action: :edit
     end
@@ -39,6 +40,6 @@ class Web::Users::SnippetsController < Web::Users::ApplicationController
   def destroy
     @snippet = Snippet.find params[:id]
     @snippet.destroy
-    redirect_to admin_snippets_path
+    redirect_to users_snippets_path
   end
 end

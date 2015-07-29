@@ -1,0 +1,17 @@
+- model_class = Snippet
+- title model_class.model_name.human.pluralize(:ru), :users
+.page-header
+  %h1
+    = model_class.model_name.human.pluralize(:ru)
+= paginate @snippets, theme: 'twitter-bootstrap-3'
+%table.table.table-condensed.table-hover
+  %thead
+    %tr
+      %th= model_class.human_attribute_name(:user)
+      %th= model_class.human_attribute_name(:title)
+  %tbody
+    - @snippets.each do |snippet|
+      %tr.link{ data: { href: snippet_path(snippet) } }
+        %td= snippet.user.login
+        %td= snippet.title
+= paginate @snippets, theme: 'twitter-bootstrap-3'

@@ -7,7 +7,8 @@ class Web::UsersController < ApplicationController
     @user_form = UserForm.new_with_model
     @user_form.submit params[:user]
     if @user_form.save
-      redirect_to admin_users_path
+      sign_in @user_form.model
+      redirect_to root_path
     else
       render action: :new
     end

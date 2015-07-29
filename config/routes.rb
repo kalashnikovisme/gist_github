@@ -2,9 +2,11 @@ Rails.application.routes.draw do
   root to: 'web/welcome#index'
 
   scope module: :web do
+    resources :snippets, only: [ :index, :show ]
     resources :users, only: [ :new, :create ]
+    resource :session, only: [:new, :create, :destroy]
 
-    scope module: :users do
+    namespace :users do
       resources :snippets
     end
 

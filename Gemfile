@@ -17,6 +17,7 @@ gem 'enumerize'
 gem 'active_form', github: 'rails/actionform', ref: '41ec958'
 gem 'kaminari'
 gem 'bootstrap-kaminari-views'
+gem 'codemirror-rails'
 
 group :development, :test do
   gem 'byebug'

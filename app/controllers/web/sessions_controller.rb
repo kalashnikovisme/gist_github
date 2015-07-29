@@ -9,9 +9,8 @@ class Web::SessionsController < Web::ApplicationController
     if @user
       if @user.authenticate params[:user][:password]
         sign_in @user
-        redirect_to account_path
+        redirect_to root_path
       else
-        @user = @user.becomes! User
         render :new
       end
     else
