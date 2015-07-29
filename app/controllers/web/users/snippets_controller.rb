@@ -1,4 +1,6 @@
 class Web::Users::SnippetsController < Web::Users::ApplicationController
+  before_filter :add_comment, only: :show
+
   def index
     @snippets = current_user.snippets.page params[:page]
   end

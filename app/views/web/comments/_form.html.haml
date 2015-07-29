@@ -1,11 +1,17 @@
 .panel.panel-default.comment-form
   .panel-heading
-    = current_user.login
-    |
-    = t('.title')
+    - if signed_in?
+      = current_user.login
+      |
+      = t('.title')
+    - else
+      = t('.need_auth')
   .panel-body
-    = simple_form_for @comment, url: { controller: 'api/users/comments', action: :create }, remote: true do |f|
-      = f.input :snippet_id, as: :hidden, input_html: { value: @snippet.id }
-      = f.input :user_id, as: :hidden, input_html: { value: current_user.id }
-      = f.input :body, label: false
-      = f.button :submit, t('.post_comment')
+    - if signed_in?
+      = simple_form_for @comment, url: { controller: 'api/users/comments', action: :create }, remote: true do |f|
+        = f.input :snippet_id, as: :hidden, input_html: { value: @snippet.id }
+        = f.input :user_id, as: :hidden, input_html: { value: current_user.id }
+        = f.input :body, label: false
+        = f.button :submit, t('.post_comment')
+    - else
+      = link_to t('.auth'), new_session_path, class: 'btn btn-default'

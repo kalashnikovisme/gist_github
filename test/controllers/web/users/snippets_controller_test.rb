@@ -26,7 +26,7 @@ class Web::Users::SnippetsControllerTest < ActionController::TestCase
     attributes = attributes_for :snippet
     post :create, snippet: attributes
     assert_response :redirect, @response.body
-    assert_redirected_to admin_snippets_path
+    assert_redirected_to users_snippets_path
     assert_equal attributes[:title], Snippet.last.title
   end
 
@@ -39,7 +39,7 @@ class Web::Users::SnippetsControllerTest < ActionController::TestCase
     attributes = attributes_for :snippet
     patch :update, snippet: attributes, id: @snippet
     assert_response :redirect, @response.body
-    assert_redirected_to edit_admin_snippet_path @snippet
+    assert_redirected_to edit_users_snippet_path @snippet
     @snippet.reload
     assert_equal attributes[:title], @snippet.title
   end

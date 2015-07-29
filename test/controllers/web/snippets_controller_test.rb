@@ -12,7 +12,7 @@ class Web::SnippetsControllerTest < ActionController::TestCase
   end
 
   test 'should get show' do
-    get :show
+    get :show, id: @snippet
     assert_response :success, @response.body
   end
 end
