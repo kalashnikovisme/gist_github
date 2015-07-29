@@ -2,6 +2,7 @@ require 'test_helper'
 
 class Web::SnippetsControllerTest < ActionController::TestCase
   setup do
+    create :user
     @snippet = create :snippet
   end
 

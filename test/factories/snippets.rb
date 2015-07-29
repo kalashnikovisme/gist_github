@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :snippet do
-    title "MyText"
-    body "MyText"
-    user_id 1
+    title { generate :string }
+    body { generate :string }
+    user_id { User.last ? User.last.id : 1 }
   end
 end
