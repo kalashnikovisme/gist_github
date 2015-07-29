@@ -1,0 +1,11 @@
+.panel.panel-default.comment-form
+  .panel-heading
+    = current_user.login
+    |
+    = t('.title')
+  .panel-body
+    = simple_form_for @comment, url: { controller: 'api/users/comments', action: :create }, remote: true do |f|
+      = f.input :snippet_id, as: :hidden, input_html: { value: @snippet.id }
+      = f.input :user_id, as: :hidden, input_html: { value: current_user.id }
+      = f.input :body, label: false
+      = f.button :submit, t('.post_comment')

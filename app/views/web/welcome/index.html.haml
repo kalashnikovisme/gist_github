@@ -1,1 +1,12 @@
 - title :app_name
+.row
+  - @snippets.each do |snippet|
+    .col-md-3
+      .panel.panel-default
+        .panel-heading
+          = snippet.user.login
+          |
+          = link_to snippet.title, snippet_path(snippet)
+        .panel-body
+          %textarea.snippet_body_view
+            = snippet.body.first(150)

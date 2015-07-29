@@ -11,3 +11,7 @@ ru:
     sessions:
       new:
         title: Авторизация
+    comments:
+      form:
+        title: Добавить комментарий
+        post_comment: Добавить комментарий

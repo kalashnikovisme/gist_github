@@ -20,6 +20,8 @@
     %ul.nav.navbar-nav.navbar-right
       - if signed_in?
         %li
+          = link_to current_user.login, '#'
+        %li
           = link_to session_path, method: :delete do
             %i.fa.fa-sign-out
             = t('helpers.sign_out')
