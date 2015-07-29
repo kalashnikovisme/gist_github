@@ -1,0 +1,19 @@
+ru:
+  application:
+    name: Дом для сниппетов
+  layouts:
+    web:
+      shared:
+        navbar:
+          add_snippet: Добавить сниппет
+          my_snippets: Мои сниппеты
+  web:
+    sessions:
+      new:
+        title: Авторизация
+    comments:
+      form:
+        title: Добавить комментарий
+        post_comment: Добавить комментарий
+        need_auth: Нужна авторизация
+        auth: Авторизоваться

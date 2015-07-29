@@ -1,0 +1,14 @@
+- title
+.container.mic-form-container
+  .row
+    .col-md-6
+      - if @user.email.present?
+        .panel.alert
+          = t('.wrong_login_or_password')
+  .row
+    .col-md-6
+      = simple_form_for @user, url: { controller: 'web/sessions', action: :create } do |f|
+        = f.input :email, as: :string
+        = f.input :password, required: true
+        = f.button :submit, t('helpers.enter'), class: "mic-flat-button"
+        = link_to t('helpers.registration'), new_user_path, class: 'btn btn-default'

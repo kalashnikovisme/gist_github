@@ -1,0 +1,16 @@
+- title @snippet.title
+.page-header
+  %h1
+    = @snippet.user.login
+    |
+    = @snippet.title
+.row
+  .col-md-12
+    %textarea#snippet_body_view
+      = @snippet.body
+%hr
+.row
+  .col-md-12
+    - @snippet.comments.each do |comment|
+      = render 'web/comments/show', comment: comment
+    = render 'web/comments/form', snippet: @snippet
